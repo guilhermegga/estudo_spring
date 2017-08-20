@@ -1,11 +1,13 @@
 new Vue({
             el: '#app',
             data: {
+            	
                 text: '',
                 title: 'To-do List',
                 list: [{
-                    text: 'Primeira coisa a fazer'
-                }]
+                    text: 'to-do zuado'
+                }],
+                clientes:[]
 
             },
             methods: {
@@ -22,10 +24,13 @@ new Vue({
                 
                 buscarTodos(){
                 		
-                	// GET /someUrl
+                	// busca dados do banco 
                 	  this.$http.get('http://localhost:8080/clientes').then(response => {
-                	    document.getElementById("resposta").innerHTML= response;
+                		  //se der certo
+                		this.clientes = response.body;
+                		
                 	  }, response => {
+                		  //se der errado
                 		  document.getElementById("resposta").innerHTML= "sem resposta";
                 	  });
                 }
