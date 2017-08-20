@@ -12,7 +12,7 @@
         <ul>
             <li v-for="item in list">
                 <span> {{item.text}}</span>
-                <button v-on:click="removeTodo($index);">X</button>
+                <button v-on:click="removeTodo(item.index);">X</button>
             </li>
         </ul>
         <br/>
