@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-
-<title>Ol· Mundo</title>
+<meta charset="utf-8" />
+<title>Ol√° Mundo</title>
 </head>
 <body>
 
-<p>Oi</p>
+<div id="app">
+ <h1>{{title}}</h1>
+ <button type="button" v-on:click="buscarTodos();">Buscar todos</button>
+        <input type="text" v-model="text" v-on:keyup.enter="addTodo();" />
+        <ul>
+            <li v-for="item in list">
+                <span> {{item.text}}</span>
+                <button v-on:click="removeTodo($index);">X</button>
+            </li>
+        </ul>
+        <div id="resposta"></div>
+</div>
 
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script th:src="@{js/myjs.js}" ></script>
 </body>
 </html>
